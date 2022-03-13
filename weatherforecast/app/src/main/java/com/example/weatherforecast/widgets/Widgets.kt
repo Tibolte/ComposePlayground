@@ -84,7 +84,7 @@ fun WeatherStateImage(imageUrl: String) {
 }
 
 @Composable
-fun HumidityWindPressureRow(weather: WeatherItem) {
+fun HumidityWindPressureRow(weather: WeatherItem, isMetric: Boolean) {
     Row(
         modifier = Modifier
             .padding(12.dp)
@@ -115,7 +115,7 @@ fun HumidityWindPressureRow(weather: WeatherItem) {
                 modifier = Modifier.size(20.dp)
             )
             Text(
-                text = "${formatDecimals(weather.speed)} kph",
+                text = formatDecimals(weather.speed) + if (isMetric) "m/s" else "mph",
                 style = MaterialTheme.typography.caption
             )
         }
